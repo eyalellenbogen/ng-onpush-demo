@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>{{ user.name }}</h1>
+  <button mat-raised-button color="primary" (click)="switch()">
+    Switch name
+  </button>
+  <app-user [user]="user"> </app-user>
+</div>

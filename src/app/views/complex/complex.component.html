@@ -1,0 +1,6 @@
+<div class="container">
+  <ng-container *ngFor="let c of cards">
+    <app-default-card [card]="c" *ngIf="!c.onPush"> </app-default-card>
+    <app-onpush-card [card]="c" *ngIf="c.onPush"> </app-onpush-card>
+  </ng-container>
+</div>

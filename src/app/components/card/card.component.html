@@ -1,0 +1,31 @@
+{{ flash() }}
+<div class="card box">
+  <h1>{{ card.counter }}</h1>
+  <div class="buttons">
+    <button mat-raised-button (click)="increment()" color="primary">
+      +
+    </button>
+    <button mat-raised-button (click)="decrement()" color="warn">
+      -
+    </button>
+  </div>
+  <div class="buttons">
+    <button
+    class="flex-grow-1"
+      mat-raised-button
+      (click)="card.onPush = !card.onPush"
+    >
+      <span *ngIf="card.onPush">onPush</span>
+      <span *ngIf="!card.onPush">default</span>
+    </button>
+  </div>
+  <!-- <h4>Random: {{rndValue}}</h4> -->
+  <!-- <h4>Random: {{rnd$ | async}}</h4> -->
+</div>
+
+<div class="cards">
+  <ng-container *ngFor="let c of card.cards">
+    <app-default-card [card]="c" *ngIf="!c.onPush"></app-default-card>
+    <app-onpush-card [card]="c" *ngIf="c.onPush"></app-onpush-card>
+  </ng-container>
+</div>
