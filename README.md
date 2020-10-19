@@ -4,7 +4,7 @@
 You can find this demo under `/zone`. The components associated with this view are `/views/zone` and `/components/array-sorter`.
 * Add items to the array in `zone.component.ts` (8 items should be enough) and the browser will choke
 * Change `array-sorter.component.ts` to `OnPush` and watch the problem go away
-* You can also comment in/out `this.zone.runOutsideAngular(...)` to see the difference
+* You can also comment in/out `this.zone.runOutsideAngular(...)` in `zone.component.ts` to see the difference
 
 ## Basic OnPush demo
 You can find this demo under `/basic`. The components associated with this view are `/views/basic` and `components/user-component`. 
