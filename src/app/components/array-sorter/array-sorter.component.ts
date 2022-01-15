@@ -4,11 +4,11 @@ import { FlashBaseComponent } from 'src/app/flash-base/flash-base.component';
 @Component({
   selector: 'app-array-sorter',
   templateUrl: './array-sorter.component.html',
-  styleUrls: ['./array-sorter.component.scss']
+  styleUrls: ['./array-sorter.component.scss'],
 })
 export class ArraySorterComponent extends FlashBaseComponent {
   @Input()
-  public arr: number[];
+  public arr: number[] = [];
 
   get sortedArray() {
     const sortedArr = [...this.arr];

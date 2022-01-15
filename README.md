@@ -1,23 +1,27 @@
-# Change Detection in Angular
+# App1
 
-## Zone.runOutsizeAngular() demo
-You can find this demo under `/zone`. The components associated with this view are `/views/zone` and `/components/array-sorter`.
-* Add items to the array in `zone.component.ts` (8 items should be enough) and the browser will choke
-* Change `array-sorter.component.ts` to `OnPush` and watch the problem go away
-* You can also comment in/out `this.zone.runOutsideAngular(...)` in `zone.component.ts` to see the difference
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
 
-## Basic OnPush demo
-You can find this demo under `/basic`. The components associated with this view are `/views/basic` and `components/user-component`. 
-* Change `user.component.ts` to `OnPush` and it'll stop updating
-* Use immutable object instead of mutating the user object in `basic.component.ts` and it'll fire change detection
-* Call `cdr.markForCheck()` inside `ngDoCheck` and it'll fire change detection
+## Development server
 
-## Advanced 
-You can find this demo under `/advanced`. The components associated with this view are `views/complex` and `components/card`.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-* Run the demo and change a 2nd level component to OnPush. Angular will stop detecting changes every 2 seconds
-* In `card.component.html` uncomment the observable binding with the async pipe. Change detection will work for OnPush components.
-* In `card.component.html` uncomment the binding to `rndValue`
-    * It won't work
-    * Use `cdr.markForCheck()` in the setter in `on-push.card.component.ts` and it'll detect changes again.
+## Code scaffolding
 
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

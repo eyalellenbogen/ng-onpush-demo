@@ -13,10 +13,10 @@
     <button
     class="flex-grow-1"
       mat-raised-button
-      (click)="card.onPush = !card.onPush"
+      (click)="card!.onPush = !card!.onPush"
     >
-      <span *ngIf="card.onPush">onPush</span>
-      <span *ngIf="!card.onPush">default</span>
+      <span *ngIf="card?.onPush">onPush</span>
+      <span *ngIf="!card?.onPush">default</span>
     </button>
   </div>
   <!-- <h4>Random: {{rndValue}}</h4> -->

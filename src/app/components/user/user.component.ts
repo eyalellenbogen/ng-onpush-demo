@@ -6,7 +6,7 @@ import {
   NgZone,
   ChangeDetectionStrategy,
   DoCheck,
-  ChangeDetectorRef
+  ChangeDetectorRef,
 } from '@angular/core';
 import { IUser } from '../../interfaces';
 import { FlashBaseComponent } from '../../flash-base/flash-base.component';
@@ -15,14 +15,16 @@ import { FlashBaseComponent } from '../../flash-base/flash-base.component';
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserComponent extends FlashBaseComponent
-  implements DoCheck, OnInit {
+export class UserComponent
+  extends FlashBaseComponent
+  implements DoCheck, OnInit
+{
   @Input()
-  public user: IUser;
+  public user: IUser | undefined;
 
-  private oldUserName: string;
+  private oldUserName: string | undefined;
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -37,10 +39,10 @@ export class UserComponent extends FlashBaseComponent
   }
 
   ngDoCheck() {
-    if (this.oldUserName === this.user.name) {
+    if (this.oldUserName === this.user?.name) {
       return;
     }
-    this.oldUserName = this.user.name;
+    this.oldUserName = this.user?.name;
     this.cdr.markForCheck();
   }
 }

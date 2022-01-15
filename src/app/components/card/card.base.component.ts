@@ -1,25 +1,30 @@
 import { ICard } from '../../interfaces';
-import { Input, DoCheck, ElementRef, NgZone } from '@angular/core';
+import { Input, DoCheck, ElementRef, NgZone, Component } from '@angular/core';
 import { RandomService } from '../../service/random.service';
 import { FlashBaseComponent } from 'src/app/flash-base/flash-base.component';
 
-export abstract class CardBaseComponent extends FlashBaseComponent
-  implements DoCheck {
+@Component({
+  template: '',
+})
+export abstract class CardBaseComponent
+  extends FlashBaseComponent
+  implements DoCheck
+{
   @Input()
-  public card: ICard;
+  public card: ICard = {} as ICard;
 
-  public rndValue: number;
+  public abstract rndValue: number | undefined;
 
   public get rnd$() {
     return this.random.rnd$;
   }
 
   increment() {
-    this.card.counter++;
+    this.card!.counter++;
   }
 
   decrement() {
-    this.card.counter--;
+    this.card!.counter--;
   }
 
   constructor(
@@ -28,7 +33,7 @@ export abstract class CardBaseComponent extends FlashBaseComponent
     zone: NgZone
   ) {
     super(zone, el);
-    this.random.rnd$.subscribe(x => (this.rndValue = x));
+    this.random.rnd$.subscribe((x) => (this.rndValue = x));
   }
 
   ngDoCheck() {}

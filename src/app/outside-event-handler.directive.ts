@@ -19,7 +19,7 @@ export class OutsideEventHandlerDirective implements OnInit, OnDestroy {
   @Output('appOutsideEventHandler')
   public emitter = new EventEmitter();
 
-  private handler: EventListener;
+  private handler: EventListener | undefined;
 
   constructor(private el: ElementRef<HTMLElement>, private zone: NgZone) {}
 
@@ -33,6 +33,6 @@ export class OutsideEventHandlerDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.el.nativeElement.removeEventListener(this.event, this.handler);
+    this.el.nativeElement.removeEventListener(this.event, this.handler!);
   }
 }

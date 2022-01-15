@@ -17,15 +17,15 @@ import { RandomService } from '../../service/random.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OnPushCardComponent extends CardBaseComponent {
-  private _rndValue: number;
-  set rndValue(value: number) {
+  private _rndValue = 0;
+  override set rndValue(value: number) {
     this._rndValue = value;
     // if (this.cdr) {
     //   this.cdr.markForCheck();
     // }
   }
 
-  get rndValue() {
+  override get rndValue() {
     return this._rndValue;
   }
 
